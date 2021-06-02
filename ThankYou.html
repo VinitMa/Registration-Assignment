@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Thank You</title>
+    <style>
+   .container{
+    width:1024px;
+    margin:30px auto;
+}
+  
+    </style>
+</head>
+<body>
+    <div class="container">
+        <center>
+            <img src="" id="DisplayImg" style="width:100%;height:500px"/>
+            <h3>Thank You</h3>
+            </center>
+        </div>
+</body>
+</html>
+<script>
+  
+    var ImgSrc = window.location.search;
+    const params = new URLSearchParams(ImgSrc)
+   
+    var SrcPara = params.get('SrcPara');
+   // console.log(SrcPara);
+    document.getElementById("DisplayImg").src = SrcPara;
+</script>

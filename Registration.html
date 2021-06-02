@@ -1,0 +1,244 @@
+<html>
+<head>
+<!-- Google Tag Manager -->
+    <title>Registraion</title>
+ <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+ 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+ })(window,document,'script','dataLayer','GTM-N28H79K');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+ <script async src="https://www.googletagmanager.com/gtag/js?id=UA-54516992-1"></script>
+ <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-54516992-1');
+ </script>
+
+ 
+</head>
+<body>
+<div style="padding-top: 5%;">
+<center>
+<h3>Registration Form</h3>
+ <!-- Google Tag Manager (noscript) -->
+ <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N28H79K"
+ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+ <!-- End Google Tag Manager (noscript) -->
+ <form id="form" method="post" onsubmit="return save()">
+  Name    : <input type="text" value="" id="txtname" autocomplete="off" maxlength="50" onkeyup="nameVal()">
+     <br>  
+     <span id="errorname" style="color:red"></span>
+     <br>
+  Email   : <input type="text" value="" id="txtemail" autocomplete="off" onkeyup="emailVal()">
+     <br>
+   <span id="emailerror" style="color:red"></span>
+     <br>
+  Mobile : <input type="text" value="" id="txtmobile" onkeyup="mobVal()" maxlength="10" autocomplete="off"><br>
+ <span id="moberror" style="color:red"></span>
+<br>
+  DOB :   <select id="ddmonth">
+           <option value="0">Month</option>
+		   <option value="january">January</option>
+		   <option value="february">February</option>
+		   <option value="march">March</option>
+		   <option value="april">April</option>
+		   <option value="may">May</option>
+           <option value="june">June</option>
+		   <option value="july">July</option>
+		   <option value="august">August</option>
+           <option value="september">September</option>
+		   <option value="october">October</option>
+		   <option value="november">November</option>
+           <option value="december">December</option>
+		  </select>
+		  <select id="ddDay">
+		   <option value="0">Days</option>
+		   <option value="1">1</option>
+		   <option value="2">2</option>
+		   <option value="3">3</option>
+		   <option value="4">4</option>
+           <option value="5">5</option>
+		   <option value="6">6</option>
+           <option value="7">7</option>
+		   <option value="8">8</option>
+           <option value="9">9</option>
+		   <option value="10">10</option>
+		  </select>
+		  <select id="ddYear">
+		   <option value="0">Years</option>
+		   <option value="1991">1991</option>
+		   <option value="1992">1992</option>
+           <option value="1993">1993</option> 
+		   <option value="1994">1994</option>
+		   <option value="1995">1995</option>
+           <option value="1996">1996</option>
+		   <option value="1997">1997</option>
+		   <option value="1998">1998</option>
+		   <option value="1999">1999</option>
+		   <option value="2000">2000</option>
+		  </select>
+		 <br>  
+     <span id="errorDob" style="color:red"></span>
+     <br> 
+ Gender : <input type="radio" name="gender" value="0"> Male
+          <input type="radio" name="gender" value="1"> Female
+ <br>  
+     <span id="errorgender" style="color:red"></span>
+     <br> 
+		 <button type="submit" value="submit" >Submit</button>
+</form>
+</center>
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+
+
+
+
+function save(){
+
+ const name = document.getElementById('txtname');
+const email = document.getElementById('txtemail');
+const mobile = document.getElementById('txtmobile');
+const month = document.getElementById('ddmonth');
+const days = document.getElementById('ddDay');
+const year = document.getElementById('ddYear');
+var gender =null;
+ var ele = document.getElementsByName('gender');
+              
+            for(i = 0; i < ele.length; i++) {
+                if(ele[i].checked)
+                gender = ele[i].value;
+            }
+	 
+	if (name.value === '' && email.value === '' && mobile.value === '' && (month.value === '0' || days.value === '0' || year.value === '0' ) && gender === null) 
+	{
+	document.getElementById("errorname").innerHTML = 'Name is required';
+	document.getElementById("emailerror").innerHTML = 'Email is required';
+	document.getElementById("moberror").innerHTML = 'Mobile number is required'; 
+	document.getElementById("errorDob").innerHTML = 'Date of birth is required';
+	document.getElementById("errorgender").innerHTML = 'Please select gender'; 
+      
+    	 return false;
+ 	
+	}
+
+ 
+	var NameReg = /^[a-zA-Z\.\-\(\)\,\&\*\$\']+[ a-zA-Z\.\-\(\)\[\],\&\*\$\\\\\////']*$/;
+	var emailReg =  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+	var mobileReg = /^[0-9+,]*$/;
+
+	if (name.value === '') {
+           	document.getElementById("errorname").innerHTML = 'Name is required';
+            	name.focus()
+    		return false;
+        }
+        else if (!NameReg.test(name.value)) {
+        	document.getElementById("errorname").innerHTML = 'Enter Valid Name';
+     		name.focus()
+   		return false;
+        }
+
+
+
+	 if (email.value === '') {
+           	document.getElementById("emailerror").innerHTML = 'Email is required';            	
+    		email.focus()
+		return false;
+        }
+        else if (!emailReg.test(email.value)) {
+        	document.getElementById("emailerror").innerHTML = 'Enter Valid Email';
+     		email.focus()
+   		return false;
+        }
+
+
+	if (mobile.value === '') {
+           	document.getElementById("moberror").innerHTML = 'Mobile number is required';            	
+    		mobile.focus()
+		return false;
+        }
+        else if (!mobileReg.test(mobile.value)) {
+        	document.getElementById("moberror").innerHTML = 'Enter Valid Mobile Number';
+     		mobile.focus()
+   		return false;
+        }
+
+
+	if(month.value === '0' || days.value === '0' || year.value === '0')
+	{
+	document.getElementById("errorDob").innerHTML = 'Date of birth is required';	
+	month.focus()
+	return false;
+	}
+	else{
+	document.getElementById("errorDob").innerHTML = '';	
+	}
+
+ 	if (gender === null) {
+           	document.getElementById("errorgender").innerHTML = 'Please select gender';            	
+    		return false;
+        }
+
+	
+	
+	event.preventDefault();
+	//page redirect
+	window.location.href = 'Gallery.html';
+    
+}
+ function mobVal() {  
+var mobileReg = /^[0-9+,]*$/;
+const mobile = document.getElementById('txtmobile');
+          var val = mobile.value
+if (!mobileReg.test(val)) {
+document.getElementById("moberror").innerHTML = 'Enter Valid Mobile Number';
+     mobile.focus()
+     return false;
+} else {
+    document.getElementById("moberror").innerHTML = '';
+  
+}
+        }
+
+function nameVal()
+{
+var NameReg = /^[a-zA-Z\.\-\(\)\,\&\*\$\']+[ a-zA-Z\.\-\(\)\[\],\&\*\$\\\\\////']*$/;
+ const name = document.getElementById('txtname');
+
+var val = name.value
+if (!NameReg.test(val)) {
+document.getElementById("errorname").innerHTML = 'Enter Valid Name';
+     name.focus()
+     return false;
+} else {
+    document.getElementById("errorname").innerHTML = '';
+  
+}
+ 
+}
+
+function emailVal()
+{
+var emailReg =  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const email = document.getElementById('txtemail');
+  var val = email.value
+if (!emailReg.test(val)) {
+document.getElementById("emailerror").innerHTML = 'Enter Valid Email';
+     email.focus()
+     return false;
+} else {
+    document.getElementById("emailerror").innerHTML = '';
+
+}
+}
+
+
+</script>

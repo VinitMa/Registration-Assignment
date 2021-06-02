@@ -1,0 +1,89 @@
+<html>
+<head>
+
+    <link href="Content/image-picker/image-picker.css" rel="stylesheet" />
+<style>
+
+img{width: 300px;
+    height: auto;}
+
+.container{
+    width:1024px;
+    margin:30px auto;
+}
+</style>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N28H79K');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-54516992-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-54516992-1');
+</script>
+
+ <title>Gallery</title>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N28H79K"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <div class="container">
+
+
+       
+        <select class="image-picker">
+            <optgroup label="Gallery">
+                <option value=""></option>
+                <option data-img-src="Content/Images/IMG_20181110_195838.jpg">1</option>
+                <option data-img-src="Content/Images/download-2.jpg">2</option>
+                <option data-img-src="Content/Images/download-1.jpg">3</option>
+                <option data-img-src="Content/Images/download.jpg">4</option>
+                <option data-img-src="Content/Images/turkey-3048299_1920-1366x550.jpg">5</option>
+            </optgroup>
+        </select>
+        <br>
+        <button onclick="Next()">Next</button>
+    </div>
+</body>
+</html>
+<script src="Content/js/jquery.js"></script>
+<script src="Content/image-picker/image-picker.min.js"></script>
+<script type="text/javascript">
+    var Image;
+    $('.image-picker').imagepicker();
+//function ImgSelect(imgVar)
+//{
+// var x, i;
+//  x = document.querySelectorAll('img');
+//  for (i = 0; i < x.length; i++) {
+//if(imgVar == x[i])
+//{
+// imgVar.classList.add("imgStyle");
+//}
+//else{
+//    x[i].style.border= 'solid 1px white','margin:10px';
+//  }
+
+//}
+
+    //}
+    $('.thumbnail img').click(function () {
+        Image = $(this).attr('src');
+      
+    });
+
+    function Next()
+    {
+        window.location.href = 'ThankYou.html?SrcPara='+Image;
+    }
+</script>
