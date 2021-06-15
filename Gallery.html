@@ -59,7 +59,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="Content/js/jquery.js"></script>
 <script src="Content/image-picker/image-picker.min.js"></script>
 <script type="text/javascript">
-    var Image;
+    var Image=null;
     $('.image-picker').imagepicker();
 //function ImgSelect(imgVar)
 //{
@@ -78,12 +78,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     //}
     $('.thumbnail img').click(function () {
-        Image = $(this).attr('src');
+        Image = $(this).attr('src');     
       
     });
 
     function Next()
-    {
-        window.location.href = 'ThankYou.html?SrcPara='+Image;
+    {        
+        if (Image != null) {
+
+            window.location.href = 'ThankYou.html?SrcPara=' + Image;
+        }
+        else {
+            alert("Please select atlist one image");
+        }
+        
+       
     }
 </script>
